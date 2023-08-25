@@ -16,9 +16,10 @@ def test_show_disk_usage(capsys, tmp_path):
 
     context = {}
     context["all_files"] = [str(tmp_file01), str(tmp_file02)]
-    char81 = """\
-'/tmp/pytest-of-calebe/pytes...w_disk_usage0/dir/arquivo01.py':        21 (67%)
-'/tmp/pytest-of-calebe/pytes...w_disk_usage0/dir/arquivo02.py':        10 (32%)
+    root_dir = str(tmp_dir01).split('/')[2]
+    char81 = f"""\
+'/tmp/{root_dir}/pytes...w_disk_usage0/dir/arquivo01.py':        21 (67%)
+'/tmp/{root_dir}/pytes...w_disk_usage0/dir/arquivo02.py':        10 (32%)
 Total size: 31
 """
     show_disk_usage(context)
